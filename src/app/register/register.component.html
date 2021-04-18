@@ -1,0 +1,40 @@
+
+    <div class="card  text-white bg-dark m-5 p-4 mx-auto" style="max-width: 30rem;">
+        <h3 style="text-align:center;text-shadow:2px 2px rgb(192, 187, 187)">sign up</h3>
+    
+    
+        <form [formGroup]="signup" (ngSubmit)="onSubmit()" >
+            <div class="form-group">
+                <label for="useremail">Username:</label>
+                <input  class="form-control" type="email" id="email" formControlName="uname" />
+            </div>
+            <div class="alert alert-danger" *ngIf="signup.controls.uname.invalid && (signup.controls.uname.touched || signup.controls.uname.dirty)">
+                <div *ngIf="signup.controls.uname.errors?.required">
+                         uname is requred
+                </div>
+                <div *ngIf="signup.controls.uname.errors?.email">
+                     username is not valid
+             </div>
+               </div>
+            <div class="form-group">
+                <label for="userpassword">Password:</label>
+                <input  class="form-control" type="password" id="password" formControlName="pswd" />
+            </div>
+            <div class="alert alert-danger" *ngIf="signup.controls.pswd.invalid && (signup.controls.pswd.touched || signup.controls.pswd.dirty)">
+                <div *ngIf="signup.controls.pswd.errors?.required">
+                         password is requred
+                </div>
+                <div *ngIf="signup.controls.pswd.errors?.minlength">
+                     passsword should be minimum 4 digit
+                </div>
+               
+               </div>
+            
+            
+             <div class="d-flex justify-content-center m-3">
+                <button type="submit" class="btn btn-success " (click)="success()">submit</button>
+            </div>
+        </form>
+    
+
+    </div>

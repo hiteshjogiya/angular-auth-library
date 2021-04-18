@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="d-flex justify-content-start m-2">
+        <input type="text" class="form-control" style="max-width:30rem;" placeholder="click here for Search Data" [(ngModel)]="title" (ngModelChange)="searchname()"/>
+        <button class="btn btn-success mx-2" routerLink="/up">Add Data</button>
+    </div> 
+<table class="table table-striped table-bordered table-hover my-3">
+    <thead class="table-dark">
+        <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>qty</th>
+        <th>author</th>
+        <th>address</th>
+        <th>action</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let onedata of data  | paginate:{itemsPerPage:5,currentPage:p}">
+        <td>{{onedata._id}}</td>
+        <td>
+            <div *ngIf="onedata.isEdit">
+                <input type="text" [(ngModel)]="onedata.name"/>
+            </div>
+            <div *ngIf="!onedata.isEdit">
+                {{onedata.name}}
+            </div>
+            
+        </td>
+        <td>
+            {{onedata.qty}}
+        </td>
+        <td>
+            {{onedata.authors}}
+        </td>
+        <td>
+            {{onedata.address}}
+        </td>
+        <td>
+            <div *ngIf="!onedata.isEdit">
+            <button class="btn btn-warning mx-2"(click)="edit(onedata)">edit</button>
+            <button class="btn btn-danger mx-2"(click)="delete(onedata)" >delete</button>
+            </div>
+            <div *ngIf="onedata.isEdit">
+                <button class="btn btn-warning mx-2" (click)="update(onedata)">update</button>
+                <button class="btn btn-danger mx-2" (click)="cancel(onedata)">cancel</button>
+                </div>
+        </td>
+
+        </tr>
+      
+    </tbody>
+  
+</table>
+<div class="m-5"style="text-align:center">
+    <pagination-controls  (pageChange)="p=$event"></pagination-controls>
+</div>
+</div>
+

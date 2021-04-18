@@ -1,0 +1,40 @@
+<div class="card  text-white bg-dark m-5 p-4 mx-auto" style="max-width: 30rem;">
+    <h3 style="text-align:center;text-shadow:2px 2px rgb(192, 187, 187)">Login</h3>
+
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" formControlName="uname" placeholder="Enter uname">
+          <div class="alert alert-danger" *ngIf="loginForm.controls.uname.invalid && (loginForm.controls.uname.touched || loginForm.controls.uname.dirty)">
+           <div *ngIf="loginForm.controls.uname.errors?.required">
+                    uname is requred
+           </div>
+           <div *ngIf="loginForm.controls.uname.errors?.uname">
+                email is not valid
+        </div>
+          </div>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" formControlName="pswd" placeholder="Password">
+          <div class="alert alert-danger" *ngIf="loginForm.controls.pswd.invalid && (loginForm.controls.pswd.touched || loginForm.controls.pswd.dirty)">
+            <div *ngIf="loginForm.controls.pswd.errors?.required">
+                     passsword is requred
+            </div>
+            <div *ngIf="loginForm.controls.pswd.errors?.minlength">
+                 passsword should be minimum 4 digit
+            </div>
+            <div *ngIf="loginForm.controls.pswd.errors?.maxlength">
+                passsword should be maximum 8 digit
+            </div>
+           </div>
+        </div>
+        <div class="d-flex justify-content-center m-3">
+          <button type="submit" class="btn btn-primary " [disabled]="loginForm.invalid">submit</button>
+      </div>
+      </form>
+
+
+</div>
