@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CruddataService } from '../cruddata.service';
 import Swal from 'sweetalert2';
 import  { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import  { Router } from '@angular/router';
 })
 export class BookComponent implements OnInit {
 
-  constructor(private _cruddata:CruddataService,private _router:Router) {
+  constructor(private _cruddata:CruddataService,private _router:Router,public _authService:AuthService) {
     this._cruddata.listen().subscribe((m:any)=>{
       console.log(m);
       this.getdata();

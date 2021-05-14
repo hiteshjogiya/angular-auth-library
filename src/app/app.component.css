@@ -1,4 +1,7 @@
-.Navbar{
+
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+.navbar{
     justify-content: space-between;
 }
 

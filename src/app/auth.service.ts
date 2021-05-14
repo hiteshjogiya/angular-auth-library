@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +9,8 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
   url = "https://hiteshbookapi-auth.herokuapp.com/api/";
+
+  isLoading:BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   
   constructor(private _http:HttpClient,private _router:Router) { }
 

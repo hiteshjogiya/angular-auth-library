@@ -16,6 +16,10 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
 import {FormsModule}  from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -33,7 +37,11 @@ import { SignupComponent } from './signup/signup.component';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     OrderModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
 
   ],
   providers: [AuthGuard,AuthService,{

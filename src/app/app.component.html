@@ -1,5 +1,5 @@
 
-<div class="d-flex justify-content-between bg-dark text-white p-2">
+<!--<div class="d-flex justify-content-between bg-dark text-white p-2">
     <h5 class="my-0 mr-md-auto font-weight-normal">Angular Mean Auth</h5>
     <nav >
         <a *ngIf="!this._authService.isloggedIn()" class="mx-2" routerLink="/login" routerLinkActive="select">login</a>
@@ -9,7 +9,19 @@
 
     </nav>
 
-</div>
+</div>-->
+<mat-toolbar color='primary' class="navbar">
+    <div>AuthApp</div>
+    <div>
+        <a *ngIf="!this._authService.isloggedIn()" class="mx-2" routerLink="/login" routerLinkActive="select"><span>Login</span></a>
+        <a class="mx-2" routerLink="/book" routerLinkActive="select"><span>Book</span></a>
+        <a *ngIf="!this._authService.isloggedIn()" class=" mx-2" routerLink="/register"><span>SignUp</span></a>
+        <a *ngIf="this._authService.isloggedIn()" class="mx-2" (click)="logout()"><span>Logout</span></a>
 
+    </div>
+</mat-toolbar>
+<div *ngIf="this._authService.isLoading | async">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</div>
 
 <router-outlet></router-outlet>
