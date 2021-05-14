@@ -15,8 +15,8 @@
     <div>
         <a *ngIf="!this._authService.isloggedIn()" class="mx-2" routerLink="/login" routerLinkActive="select"><span>Login</span></a>
         <a class="mx-2" routerLink="/book" routerLinkActive="select"><span>Book</span></a>
-        <a *ngIf="!this._authService.isloggedIn()" class=" mx-2" routerLink="/register"><span>SignUp</span></a>
-        <a *ngIf="this._authService.isloggedIn()" class="mx-2" (click)="logout()"><span>Logout</span></a>
+        <a *ngIf="!this._authService.isloggedIn()" class=" mx-2" routerLink="/register" routerLinkActive="select"><span>SignUp</span></a>
+        <a *ngIf="this._authService.isloggedIn()" class="mx-2" (click)="logout()" routerLinkActive="select"><span>Logout</span></a>
 
     </div>
 </mat-toolbar>
